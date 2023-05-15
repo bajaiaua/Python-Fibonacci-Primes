@@ -1,0 +1,24 @@
+# Пример кода на Python
+def fibonacci_sequence(n):
+    """Функция для генерации последовательности Фибоначчи"""
+    sequence = [0, 1]
+    while len(sequence) < n:
+        next_num = sequence[-1] + sequence[-2]
+        sequence.append(next_num)
+    return sequence
+
+def is_prime(num):
+    """Функция для проверки является ли число простым"""
+    if num < 2:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+n = int(input("Введите количество чисел последовательности Фибоначчи: "))
+sequence = fibonacci_sequence(n)
+print("Последовательность Фибоначчи:", sequence)
+
+primes = [num for num in sequence if is_prime(num)]
+print("Простые числа в последовательности:", primes)
